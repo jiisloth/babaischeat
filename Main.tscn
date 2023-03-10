@@ -1,0 +1,683 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://REDENSEK.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://bigbaba.png" type="Texture" id=3]
+[ext_resource path="res://sprites.png" type="Texture" id=4]
+[ext_resource path="res://woble.gd" type="Script" id=5]
+[ext_resource path="res://GlitchOverlay.gd" type="Script" id=6]
+[ext_resource path="res://bg.png" type="Texture" id=7]
+[ext_resource path="res://dpcomic.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Run.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Outline.gd" type="Script" id=11]
+
+[sub_resource type="Animation" id=26]
+resource_name = "Move stuff"
+length = 3.2
+step = 0.04
+tracks/0/type = "value"
+tracks/0/path = NodePath("Scroll/BabaChar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 48, -48 ), Vector2( 48, -16 ), Vector2( 80, -16 ), Vector2( 80, 16 ), Vector2( 112, 16 ), Vector2( 112, 48 ), Vector2( 80, 48 ), Vector2( 48, 48 ), Vector2( 80, 48 ), Vector2( 80, 16 ), Vector2( 80, -16 ), Vector2( 80, -48 ), Vector2( 80, -80 ), Vector2( 80, -112 ), Vector2( 80, -144 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Scroll/BabaChar:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4, 0.8, 1, 1.2, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -1, 1 ), Vector2( 1, 1 ), Vector2( -1, 1 ), Vector2( 1, 1 ), Vector2( -1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Scroll/BabaChar:active")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Scroll/BigBaba:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 32, 120 ), Vector2( -29, 166 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Scroll/Baba:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.2, 0.4, 1.6, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 16, 16 ), Vector2( 16, 48 ), Vector2( 16, 48 ), Vector2( -16, 48 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Scroll/Baba:active")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.24 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Scroll/Cheat:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.8, 1, 1.4, 1.6, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 80, 16 ), Vector2( 80, 48 ), Vector2( 80, 48 ), Vector2( 48, 48 ), Vector2( 16, 48 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Scroll/Level:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 16, -16 ), Vector2( 16, -16 ), Vector2( 16, 16 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Scroll/Level:active")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.36, 0.84 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Glitch/GlitchOverlay:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.36 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Scroll/Cheat:active")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.24, 0.36, 0.84 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Scroll/Is:active")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.24, 0.36, 0.84 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+tracks/12/type = "bezier"
+tracks/12/path = NodePath("Scroll:position:y")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.8, -0.0590191, 128, -1, 0.107666, 0.25, 0 ),
+"times": PoolRealArray( 0, 3.2 )
+}
+
+[sub_resource type="Animation" id=27]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Scroll/BabaChar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 80, -16 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Scroll/BabaChar:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Scroll/BabaChar:active")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Scroll/BigBaba:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 32, 120 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Scroll/Baba:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 16, 16 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Scroll/Baba:active")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Scroll/Cheat:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 80, 16 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Scroll/Level:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 16, -16 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Scroll/Level:active")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Glitch/GlitchOverlay:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Scroll/Cheat:active")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Scroll/Is:active")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Scroll:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0313726, 0.0313726, 0.0313726, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.141176, 0.141176, 0.141176, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.0313726, 0.0313726, 0.0313726, 0 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.517647, 0.517647, 0.517647, 0.596078 )
+expand_margin_left = 4.0
+
+[sub_resource type="StyleBoxFlat" id=12]
+
+[sub_resource type="StyleBoxFlat" id=13]
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0.568627, 0, 0, 0 )
+border_color = Color( 1, 0.960784, 0.960784, 0 )
+expand_margin_left = 4.0
+expand_margin_right = 3.0
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="ImageTexture" id=16]
+
+[sub_resource type="ImageTexture" id=17]
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0.0431373, 0.0392157, 0.0588235, 1 )
+
+[sub_resource type="DynamicFont" id=24]
+size = 15
+extra_spacing_top = -3
+extra_spacing_bottom = -2
+font_data = ExtResource( 8 )
+
+[sub_resource type="Theme" id=25]
+default_font = SubResource( 24 )
+Button/styles/disabled = SubResource( 3 )
+Button/styles/focus = SubResource( 3 )
+Button/styles/hover = SubResource( 4 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 3 )
+LineEdit/styles/focus = SubResource( 5 )
+LineEdit/styles/normal = SubResource( 6 )
+LineEdit/styles/read_only = SubResource( 7 )
+Tree/styles/bg = SubResource( 10 )
+Tree/styles/bg_focus = SubResource( 10 )
+VScrollBar/styles/grabber = SubResource( 11 )
+VScrollBar/styles/grabber_highlight = SubResource( 12 )
+VScrollBar/styles/grabber_pressed = SubResource( 13 )
+VScrollBar/styles/scroll = SubResource( 14 )
+VScrollBar/styles/scroll_focus = SubResource( 15 )
+WindowDialog/icons/close = SubResource( 16 )
+WindowDialog/icons/close_highlight = SubResource( 17 )
+WindowDialog/styles/panel = SubResource( 18 )
+
+[sub_resource type="Shader" id=22]
+code = "/*
+	Glitch Effect Shader by Yui Kinomoto @arlez80
+
+	MIT License
+*/
+
+shader_type canvas_item;
+uniform float shake_power = 0.005;
+uniform float shake_block_size = 30.5;
+uniform float shake_color_rate : hint_range( 0.0, 1.0 ) = 0.02;
+uniform float shift = 1.0;
+
+float random( float seed )
+{
+    return fract( 543.2543 * sin( dot( vec2( seed, seed ), vec2( 3525.46, -54.3415 ) ) ) );
+}
+
+void fragment( )
+{
+
+    vec2 fixed_uv = SCREEN_UV;
+    fixed_uv.x += (random(( trunc( SCREEN_UV.y * shake_block_size) / shake_block_size )+TIME) - 0.5) * shake_power * shift;
+    vec2 color_uv = vec2(0);
+    color_uv.x += (random(( trunc( SCREEN_UV.y * shake_block_size) / shake_block_size )+TIME*0.2) - 0.5) * shake_power * shift*0.5;
+
+    vec4 pixel_color = textureLod( SCREEN_TEXTURE, fixed_uv, 0.0 );
+        
+    pixel_color.r = mix(pixel_color.r, textureLod( SCREEN_TEXTURE, fixed_uv + color_uv, 0.0 ).r, 0.5);
+    pixel_color.b = mix(pixel_color.b, textureLod( SCREEN_TEXTURE, fixed_uv - color_uv, 0.0 ).b, 0.5);
+    if (shift > 8.0){
+        pixel_color.r = mix(pixel_color.r, textureLod( SCREEN_TEXTURE, fixed_uv + color_uv+0.02, 0.0 ).r, (1.0+sin(TIME))*0.5);
+        pixel_color.b = mix(pixel_color.b, textureLod( SCREEN_TEXTURE, fixed_uv - color_uv-0.02, 0.0 ).b, (1.0+sin(TIME))*0.5);
+       }
+    
+    float white_line_x1 = random(SCREEN_UV.y * TIME*10.0);
+    float white_line_x2 = random(SCREEN_UV.y * TIME*10.0+10.0);
+    float white_line = random(SCREEN_UV.y * TIME);
+    if (trunc(white_line+0.00005) == 1.0 && (SCREEN_UV.x < white_line_x1 || SCREEN_UV.x > white_line_x2 )){
+        pixel_color.rgb = mix(pixel_color.rgb, vec3(1), white_line*0.2);
+       }
+    
+    COLOR = pixel_color;
+}"
+
+[sub_resource type="ShaderMaterial" id=23]
+shader = SubResource( 22 )
+shader_param/shake_power = 0.005
+shader_param/shake_block_size = 30.5
+shader_param/shake_color_rate = 0.02
+shader_param/shift = 1.0
+
+[sub_resource type="DynamicFont" id=1]
+size = 13
+extra_spacing_top = -3
+extra_spacing_bottom = -2
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=20]
+default_font = SubResource( 1 )
+Button/styles/disabled = SubResource( 3 )
+Button/styles/focus = SubResource( 3 )
+Button/styles/hover = SubResource( 4 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 3 )
+LineEdit/styles/focus = SubResource( 5 )
+LineEdit/styles/normal = SubResource( 6 )
+LineEdit/styles/read_only = SubResource( 7 )
+Tree/styles/bg = SubResource( 10 )
+Tree/styles/bg_focus = SubResource( 10 )
+VScrollBar/styles/grabber = SubResource( 11 )
+VScrollBar/styles/grabber_highlight = SubResource( 12 )
+VScrollBar/styles/grabber_pressed = SubResource( 13 )
+VScrollBar/styles/scroll = SubResource( 14 )
+VScrollBar/styles/scroll_focus = SubResource( 15 )
+WindowDialog/icons/close = SubResource( 16 )
+WindowDialog/icons/close_highlight = SubResource( 17 )
+WindowDialog/styles/panel = SubResource( 18 )
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0.0666667, 0.0588235, 0.0666667, 1 )
+
+[sub_resource type="Theme" id=21]
+default_font = SubResource( 1 )
+Button/styles/disabled = SubResource( 3 )
+Button/styles/focus = SubResource( 3 )
+Button/styles/hover = SubResource( 4 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 3 )
+LineEdit/styles/focus = SubResource( 5 )
+LineEdit/styles/normal = SubResource( 6 )
+LineEdit/styles/read_only = SubResource( 7 )
+Tree/styles/bg = SubResource( 10 )
+Tree/styles/bg_focus = SubResource( 10 )
+VScrollBar/styles/grabber = SubResource( 11 )
+VScrollBar/styles/grabber_highlight = SubResource( 12 )
+VScrollBar/styles/grabber_pressed = SubResource( 13 )
+VScrollBar/styles/scroll = SubResource( 14 )
+VScrollBar/styles/scroll_focus = SubResource( 15 )
+WindowDialog/icons/close = SubResource( 16 )
+WindowDialog/icons/close_highlight = SubResource( 17 )
+WindowDialog/styles/panel = SubResource( 19 )
+
+[node name="Main" type="CanvasLayer"]
+script = ExtResource( 1 )
+Run = ExtResource( 9 )
+
+[node name="Scroll" type="Node2D" parent="."]
+
+[node name="Back" type="Sprite" parent="Scroll"]
+position = Vector2( 48, 16 )
+texture = ExtResource( 7 )
+hframes = 3
+script = ExtResource( 5 )
+
+[node name="Run" type="Node2D" parent="Scroll"]
+position = Vector2( 0, -128 )
+
+[node name="BigBaba" type="Sprite" parent="Scroll"]
+position = Vector2( 32, 120 )
+texture = ExtResource( 3 )
+hframes = 3
+script = ExtResource( 5 )
+
+[node name="BabaChar" type="Sprite" parent="Scroll"]
+position = Vector2( 80, -16 )
+texture = ExtResource( 4 )
+hframes = 3
+vframes = 26
+frame = 66
+script = ExtResource( 5 )
+active = true
+
+[node name="Outline" type="Sprite" parent="Scroll/BabaChar"]
+modulate = Color( 0.0431373, 0.0392157, 0.0588235, 1 )
+show_behind_parent = true
+script = ExtResource( 11 )
+
+[node name="Baba" type="Sprite" parent="Scroll"]
+position = Vector2( 16, 16 )
+texture = ExtResource( 4 )
+hframes = 3
+vframes = 26
+frame = 72
+script = ExtResource( 5 )
+active = true
+
+[node name="Outline" type="Sprite" parent="Scroll/Baba"]
+modulate = Color( 0.0431373, 0.0392157, 0.0588235, 1 )
+show_behind_parent = true
+script = ExtResource( 11 )
+
+[node name="Level" type="Sprite" parent="Scroll"]
+position = Vector2( 16, -16 )
+texture = ExtResource( 4 )
+hframes = 3
+vframes = 26
+frame = 54
+script = ExtResource( 5 )
+
+[node name="Outline" type="Sprite" parent="Scroll/Level"]
+modulate = Color( 0.0431373, 0.0392157, 0.0588235, 1 )
+show_behind_parent = true
+script = ExtResource( 11 )
+
+[node name="Cheat" type="Sprite" parent="Scroll"]
+position = Vector2( 80, 16 )
+texture = ExtResource( 4 )
+hframes = 3
+vframes = 26
+frame = 30
+script = ExtResource( 5 )
+active = true
+
+[node name="Outline" type="Sprite" parent="Scroll/Cheat"]
+modulate = Color( 0.0431373, 0.0392157, 0.0588235, 1 )
+show_behind_parent = true
+script = ExtResource( 11 )
+
+[node name="Is" type="Sprite" parent="Scroll"]
+position = Vector2( 48, 16 )
+texture = ExtResource( 4 )
+hframes = 3
+vframes = 26
+frame = 36
+script = ExtResource( 5 )
+active = true
+
+[node name="Outline" type="Sprite" parent="Scroll/Is"]
+modulate = Color( 0.0431373, 0.0392157, 0.0588235, 1 )
+show_behind_parent = true
+script = ExtResource( 11 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Move stuff" = SubResource( 26 )
+anims/RESET = SubResource( 27 )
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.5
+margin_top = -40.0
+margin_right = 37.5
+margin_bottom = 8.0
+theme = SubResource( 25 )
+
+[node name="Start" type="Button" parent="Menu"]
+margin_right = 75.0
+margin_bottom = 9.0
+disabled = true
+text = "Cheat"
+
+[node name="Record" type="Button" parent="Menu"]
+margin_top = 13.0
+margin_right = 75.0
+margin_bottom = 22.0
+disabled = true
+text = "Record"
+
+[node name="SelectFile" type="Button" parent="Menu"]
+margin_top = 26.0
+margin_right = 75.0
+margin_bottom = 35.0
+text = "Select File"
+
+[node name="Namehodl" type="Label" parent="Menu"]
+margin_top = 39.0
+margin_right = 75.0
+margin_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+align = 1
+
+[node name="Filename" type="Label" parent="Menu/Namehodl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -83.0
+margin_top = -4.5
+margin_right = 83.0
+margin_bottom = 4.5
+text = "No file"
+align = 1
+
+[node name="Glitch" type="CanvasLayer" parent="."]
+
+[node name="GlitchOverlay" type="ColorRect" parent="Glitch"]
+visible = false
+material = SubResource( 23 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+
+[node name="FileDialog" type="FileDialog" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 164.0
+theme = SubResource( 20 )
+popup_exclusive = true
+window_title = "Open a File"
+mode = 0
+access = 2
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+margin_right = 84.0
+margin_bottom = 70.0
+theme = SubResource( 21 )
+popup_exclusive = true
+window_title = ""
+dialog_text = "FILE IS ERROR
+          IS
+ :'(        X"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="Menu/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Menu/Record" to="." method="_on_Record_pressed"]
+[connection signal="pressed" from="Menu/SelectFile" to="." method="_on_SelectFile_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
+[connection signal="popup_hide" from="FileDialog" to="." method="_on_FileDialog_popup_hide"]
+[connection signal="confirmed" from="AcceptDialog" to="." method="_on_AcceptDialog_confirmed"]
