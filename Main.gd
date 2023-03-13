@@ -11,6 +11,8 @@ func _ready():
     SaveLoad.load_data()
     if SaveLoad.data["currentpath"] != "":
         read_file(SaveLoad.data["currentpath"])
+    else:
+        $Menu/SelectFile.grab_focus()
 
 func _on_Start_pressed():
     running = Run.instance()
@@ -74,6 +76,7 @@ func read_file(p):
                         return false
     $Menu/Namehodl/Filename.text = p.get_file()
     $Menu/Start.disabled = false
+    $Menu/Start.grab_focus()
     SaveLoad.data["currentpath"] = p
     SaveLoad.save_data()
     return true

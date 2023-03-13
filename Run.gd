@@ -107,12 +107,20 @@ func _process(delta):
     set_numbers()
     if not ready_to_start:
         return
+    if Input.is_action_just_pressed("PREV"):
+        clear_errors()
+        move_up(true)
+    if Input.is_action_just_pressed("RESETLVL"):
+        reset_level()
     if current == len(actions):
         if not saved:
             do_save()
             saved = true
         return
     set_time_vars()
+    if Input.is_action_just_pressed("NEXT"):
+        clear_errors()
+        move_down(true)
     if Input.is_action_just_pressed("UNDO"):
         if errors > 0:
             remove_error()
@@ -180,12 +188,18 @@ func remove_error():
 
 func clear_errors():
     meters[meter.STREAK]["value"] = 0
-    while $Scrolls/Errors.get_child_count() > 0:
-        $Scrolls/Errors.get_children()[-1].queue_free()
+    for err in $Scrolls/Errors.get_children():
+        err.queue_free()
     $Scrolls.position.y = 0
     errors = 0
     update_ui(true)
 
+
+func reset_level():
+    clear_errors()
+    while len(actions[current-1]) != 2 and current > 1:
+        move_up(true)
+    
 
 func move_down(f=false):
     if not f:
@@ -215,6 +229,8 @@ func move_up(f=false):
         actions_done += 1
         $Tween.interpolate_property($Scrolls/Scroll, "position:y", (4.5+current)*32, (4.5+current-1)*32, 0.1,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
         $Tween.start()
+    else:
+        $Scrolls/Scroll.position.y = (4.5+current-1)*32
     current -= 1
     update_ui(f)
 
